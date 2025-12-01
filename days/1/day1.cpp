@@ -1,4 +1,5 @@
 #include <charconv>
+#include <fstream>
 #include <iostream>
 #include <optional>
 #include <ranges>
@@ -36,7 +37,8 @@ constexpr std::optional<uint8_t> parseSignedMovement(std::string_view line) {
 int main() {
   // Create a view of each line from standard input (the lines are supposed to
   // be correctly formed so no space in a line)
-  auto lines_view = std::views::istream<std::string>(std::cin);
+  std::ifstream input{"input.txt"};
+  auto lines_view = std::views::istream<std::string>(input);
   uint8_t position{50};
   uint64_t counter{0};
   // Process each movement line by parsing it, filtering ut the invalid
