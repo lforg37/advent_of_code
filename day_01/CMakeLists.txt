@@ -1,2 +1,3 @@
 add_executable(advent_of_code_day1 day1.cpp)
 add_executable(advent_of_code_day1_mmap day1_mmap.cpp)
+add_executable(advent_of_code_day1_1_mmap day1_1_mmap.cpp)
