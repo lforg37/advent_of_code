@@ -1,5 +1,6 @@
 .cache
-build/ 
+.vscode
+build/
 compile_commands.json
 
 # Prerequisites
