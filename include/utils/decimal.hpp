@@ -24,6 +24,20 @@ template <std::unsigned_integral T> constexpr auto powersOfTen() {
   });
   return result;
 }
+
+template <std::unsigned_integral T>
+inline constexpr void addLowDigit(T &value, char digit) {
+  value *= 10;
+  value += digit - '0';
+}
+
+template <std::unsigned_integral T>
+inline constexpr T addLowDigit(T &&value, char digit) {
+  addLowDigit(value, digit);
+  return value;
+}
+
+static_assert(addLowDigit(0u, '7') == 7u);
 } // namespace utils
 
 #endif // UTILS_DECIMAL_HPP
