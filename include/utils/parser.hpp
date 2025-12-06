@@ -1,6 +1,7 @@
 #ifndef UTILS_PARSER_HPP
 #define UTILS_PARSER_HPP
 
+#include <algorithm>
 #include <cstddef>
 #include <cstdint>
 #include <ranges>
@@ -26,6 +27,16 @@ public:
     auto result = data.substr(0, std::min(n, data.size()));
     data = data.substr(std::min(n, data.size()));
     return result;
+  }
+  constexpr size_t eat(char toEat) {
+    size_t res{0};
+    for (auto c : data) {
+      if (c != toEat)
+        break;
+      res += 1;
+    }
+    drop(res);
+    return res;
   }
   constexpr bool empty() const { return data.empty(); }
 
