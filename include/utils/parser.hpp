@@ -40,6 +40,8 @@ public:
   }
   constexpr bool empty() const { return data.empty(); }
 
+  constexpr auto remain() const { return data; }
+
 private:
   std::string_view data;
 };
